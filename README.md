@@ -39,3 +39,6 @@
     git pull --ff-only
     ```
 
+## Legal
+
+WTFPL
