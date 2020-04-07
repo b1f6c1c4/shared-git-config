@@ -10,9 +10,9 @@
 	ui = auto
 [http]
 	postBuffer = 524288000
-    # proxy = http://localhost:1081
+	# proxy = http://localhost:1081
 [https]
-    # proxy = http://localhost:1081
+	# proxy = http://localhost:1081
 [alias]
 	co = checkout
 	st = status -sb
@@ -38,7 +38,7 @@
 	cmna = commit --amend -C HEAD
 	ac = !git add -A && git commit
 	acmna = !git add -A && git commit --amend -C HEAD
-    pu = push
+	pu = push
 	pnf = push --force-with-lease
 	cp = cherry-pick
 	mnfss = merge --no-ff -s subtree
@@ -46,25 +46,25 @@
 	pt = push --tags
 	mnfssx = !git merge --no-ff -s subtree -X subtree=${1}
 	fuck = !git add -A && git commit --amend -C HEAD && git push --force-with-lease
-    s = diff-files --name-status
-    t = diff-index --name-status HEAD
-    ass = update-index --assume-unchanged --
-    unass = update-index --no-assume-unchanged --
-    skip = update-index --skip-worktree --
-    unskip = update-index --no-skip-worktree --
-    r = restore --source
-    rs = restore --source HEAD --staged
-    rw = restore --worktree
-    rsw = restore --source HEAD --staged --worktree
-    sw = switch
-    de = switch --detach
-    its = !git branch -f ${1} HEAD && git switch ${1}
-    sh = "!bash -c 'git diff-tree --color=always -p \"$1^1\" \"$1\" | less' ''"
-    ff = "!bash -c 'git merge-base --is-ancestor \"$1\" \"$2\" && git branch -f \"$1\" \"$2\" && echo \"$(git rev-parse \"$1@{1}\")\" \"->\" \"$(git rev-parse $2)\" || (echo FAIL && false)' ''"
-    greps = "!bash -c 'git --no-pager grep \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps \"$@\")\" )\"' ''"
-    find = "!bash -c 'git ls-files -- :/ | grep \"$1\"' ''"
-    finds = "!bash -c 'git ls-files -- :/ | grep \"$1\"; git submodule foreach --recursive \"git ls-files\" | grep -e \"1\" -e Entering' ''"
-    onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
+	s = diff-files --name-status
+	t = diff-index --name-status HEAD
+	ass = update-index --assume-unchanged --
+	unass = update-index --no-assume-unchanged --
+	skip = update-index --skip-worktree --
+	unskip = update-index --no-skip-worktree --
+	r = restore --source
+	rs = restore --source HEAD --staged
+	rw = restore --worktree
+	rsw = restore --source HEAD --staged --worktree
+	sw = switch
+	de = switch --detach
+	its = !git branch -f ${1} HEAD && git switch ${1}
+	sh = "!bash -c 'git diff-tree --color=always -p \"$1^1\" \"$1\" | less' ''"
+	ff = "!bash -c 'git merge-base --is-ancestor \"$1\" \"$2\" && git branch -f \"$1\" \"$2\" && echo \"$(git rev-parse \"$1@{1}\")\" \"->\" \"$(git rev-parse $2)\" || (echo FAIL && false)' ''"
+	greps = "!bash -c 'git --no-pager grep \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps \"$@\")\" )\"' ''"
+	find = "!bash -c 'git ls-files -- :/ | grep \"$1\"' ''"
+	finds = "!bash -c 'git ls-files -- :/ | grep \"$1\"; git submodule foreach --recursive \"git ls-files\" | grep -e \"1\" -e Entering' ''"
+	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
 [credential]
 	helper = cache
 [diff]
