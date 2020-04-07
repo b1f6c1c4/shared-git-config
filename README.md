@@ -5,11 +5,23 @@
 ## Usage
 
 1. Fork this repo.
-1. Run the following on all your computers:
+1. Run the following on the computer that has the best `~/.gitconfig`:
 
     ```bash
     git clone --depth=1 git@github.com:<your-github-username>/shared-git-config.git ~/shared-git-config
     mv -f ~/.gitconfig ~/shared-git-config/.gitconfig
+    ln -s ~/shared-git-config/.gitconfig ~/.gitconfig
+    cd ~/shared-git-config
+    git add .gitconfig
+    git commit
+    git push -u origin master
+    ```
+
+1. Run the following on all other computers:
+
+    ```bash
+    git clone --depth=1 git@github.com:<your-github-username>/shared-git-config.git ~/shared-git-config
+    mv -f ~/.gitconfig ~/.gitconfig.bak
     ln -s ~/shared-git-config/.gitconfig ~/.gitconfig
     ```
 
@@ -17,8 +29,13 @@
 
     ```bash
     # On the computer where you modified your git config
-    cd ~/shared-git-config && git add .gitconfig && git commit && git push`
+    cd ~/shared-git-config
+    git add .gitconfig
+    git commit
+    git push -u origin master
+
     # On other computers
-    cd ~/shared-git-config && git pull --ff-only
+    cd ~/shared-git-config
+    git pull --ff-only
     ```
 
