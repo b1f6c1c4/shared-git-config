@@ -32,7 +32,7 @@
 	pf = pull --ff-only
 	fp = fetch -p
 	fpa = fetch --prune --all
-	clones = clone --depth 1
+	clones = clone --depth 1 --no-tags
 	br = branch
 	cm = commit
 	cmna = commit --amend -C HEAD
