@@ -65,6 +65,7 @@
 	find = "!bash -c 'git ls-files -- :/ | grep \"$1\"' ''"
 	finds = "!bash -c 'git ls-files -- :/ | grep \"$1\"; git submodule foreach --recursive \"git ls-files\" | grep -e \"1\" -e Entering' ''"
 	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
+	ignore = !vim `git rev-parse --git-dir`/info/exclude
 [credential]
 	helper = cache
 [diff]
