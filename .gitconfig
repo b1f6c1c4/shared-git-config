@@ -61,7 +61,7 @@
 	rsw = restore --source HEAD --staged --worktree
 	sw = switch
 	de = switch --detach
-	its = !git branch -f ${1} HEAD && git switch ${1}
+	its = "!bash -c 'git branch -f \"$1\" HEAD && git switch \"$1\"' ''"
 	sh = "!bash -c 'git diff-tree --color=always -p \"$1^1\" \"$1\" | less' ''"
 	ff = "!bash -c 'git merge-base --is-ancestor \"$1\" \"$2\" && git branch -f \"$1\" \"$2\" && echo \"$(git rev-parse \"$1@{1}\")\" \"->\" \"$(git rev-parse $2)\" || (echo FAIL && false)' ''"
 	greps = "!bash -c '(git --no-pager grep --color=always \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps --color=always \"$@\")\" )\") | less' ''"
