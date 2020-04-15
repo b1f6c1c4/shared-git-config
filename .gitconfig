@@ -70,6 +70,7 @@
 	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
 	ignore = !vim `git rev-parse --git-dir`/info/exclude
 	suir = submodule update --init --recursive
+	with = "!\"$SHELL\" -c 'A=\"$(mktemp -d)\"; git worktree add \"$A\" \"$@\"; git worktree list; (cd \"$A\"; printf \"$ cd \"; pwd; \"$SHELL\"); git worktree remove -f \"$A\"; git worktree list; printf \"$ cd \"; pwd' ''"
 [credential]
 	helper = cache
 [diff]
