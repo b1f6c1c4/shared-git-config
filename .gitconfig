@@ -15,7 +15,6 @@
 	# proxy = http://localhost:1081
 [alias]
 	co = checkout
-	st = status -sb
 	branches = branch -av
 	remotes = remote -v
 	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -24,10 +23,8 @@
 	lf = log -p
 	fe = fetch
 	ch = cherry -v
-	mf = merge --ff-only
-	mnf = merge --no-ff
-	mnfnc = merge --no-ff --no-commit
 	orphan-worktree = "!git worktree add --no-checkout --detach ../${1} && git symbolic-ref worktrees/${1}/HEAD refs/heads/${1} && git --work-tree=../${1} reset -q && echo "
+	d = diff
 	dc = diff --cached
 	pf = pull --ff-only
 	fp = fetch -p
@@ -39,15 +36,21 @@
 	ac = !git add -A && git commit
 	acmna = !git add -A && git commit --amend -C HEAD
 	pu = push
+	pt = push --tags
 	pnf = push --force-with-lease
 	cp = cherry-pick
+	mf = merge --ff-only
+	mnf = merge --no-ff
+	mnfnc = merge --no-ff --no-commit
 	mnfss = merge --no-ff -s subtree
 	mnfncss = merge --no-ff --no-commit -s subtree
-	pt = push --tags
 	mnfssx = !git merge --no-ff -s subtree -X subtree=${1}
 	fuck = !git add -A && git commit --amend -C HEAD && git push --force-with-lease
+	st = status -sb
 	s = diff-files --name-status
 	t = diff-index --name-status HEAD
+	sb = show-branch
+	sba = show-branch -a
 	ass = update-index --assume-unchanged --
 	unass = update-index --no-assume-unchanged --
 	skip = update-index --skip-worktree --
@@ -66,6 +69,7 @@
 	finds = "!(git ls-files; git submodule foreach --recursive \"git ls-files\") | awk -F '/' \"{ if (match(\\$0, /^Entering '(.*)'\\$/, ary)) { P=ary[1]; sep=\\\"/\\\" } else { printf \\\"%s%s%s\\\\n\\\",P,sep,\\$0; } }\" | grep --color=always"
 	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
 	ignore = !vim `git rev-parse --git-dir`/info/exclude
+	suir = submodule update --init --recursive
 [credential]
 	helper = cache
 [diff]
@@ -76,3 +80,4 @@
 	version = 2
 [rebase]
 	autosquash = true
+# vim: set noexpandtab:
