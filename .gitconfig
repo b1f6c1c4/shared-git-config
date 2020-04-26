@@ -26,6 +26,7 @@
 	orphan-worktree = "!git worktree add --no-checkout --detach ../${1} && git symbolic-ref worktrees/${1}/HEAD refs/heads/${1} && git --work-tree=../${1} reset -q && echo "
 	d = diff
 	dc = diff --cached
+	c = diff --cached
 	pf = pull --ff-only
 	fp = fetch -p
 	fpa = fetch --prune --all
