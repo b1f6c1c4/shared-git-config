@@ -1,6 +1,7 @@
 [user]
 	name = b1f6c1c4
 	email = b1f6c1c4@gmail.com
+	signingKey = 56E8F3660C5EA492F1B47251B733A45639BA98FF
 [sendpack]
 	sideband = false
 [core]
