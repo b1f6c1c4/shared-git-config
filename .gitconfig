@@ -15,7 +15,6 @@
 [https]
 	# proxy = http://localhost:1081
 [alias]
-	co = checkout
 	branches = branch -av
 	remotes = remote -v
 	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)%G?<%an>%Creset' --abbrev-commit
