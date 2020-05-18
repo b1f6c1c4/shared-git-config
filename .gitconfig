@@ -56,8 +56,8 @@
 	mnfssx = !git merge --no-ff -s subtree -X subtree=${1}
 	fuck = !git add -A && git commit --amend -C HEAD && git push --force-with-lease
 	st = status -sb
-	s = diff-files --name-status
-	t = diff-index --name-status --cached HEAD
+	s = status -sb --no-renames --ignore-submodules=all --untracked-files=no
+	t = status -sb --no-renames --ignore-submodules=all
 	sb = show-branch
 	sba = show-branch -a
 	ass = update-index --assume-unchanged --
