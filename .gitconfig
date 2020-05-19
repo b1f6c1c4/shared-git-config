@@ -17,9 +17,9 @@
 [alias]
 	branches = branch -av
 	remotes = remote -v
-	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)%G?<%an>%Creset' --abbrev-commit
-	la = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)%G?<%an>%Creset' --abbrev-commit --all
-	ls = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)%G?<%an>%Creset' --abbrev-commit --decorate --numstat
+	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit
+	la = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all
+	ls = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --decorate --numstat
 	lf = log -p
 	fe = fetch
 	ch = cherry -v
