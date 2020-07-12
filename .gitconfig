@@ -34,11 +34,11 @@
 	br = branch
 	a = add
 	ap = add -p
-	cm = commit
-	cma = commit --amend
+	cm = commit -uno
+	cma = commit -uno --amend
 	cmna = commit --amend -C HEAD
-	ca = commit -a
-	cama = commit -a --amend
+	ca = commit -uno -a
+	cama = commit -uno -a --amend
 	camna = commit -a --amend -C HEAD
 	ac = !git add -A && git commit
 	acma = !git add -A && git commit --amend
