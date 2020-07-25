@@ -84,7 +84,7 @@
 	sub = submodule
 	sync = submodule sync
 	with-ng = "!\"$SHELL\" -c 'A=\"$(mktemp -d)\"; git worktree add \"$A\" \"$@\" && git worktree list && (unset GIT_DIR; cd \"$A\"; printf \"$ cd \"; pwd; git status; \"$SHELL\"); git worktree remove -f \"$A\"; git worktree list; printf \"$ cd \"; pwd' ''"
-	with = "!\"$SHELL\" -c 'A=\"$(mktemp -d)\"; chgrp \"$(stat -c \"%g\" \"$(git rev-parse --git-dir)\")\" \"$A\"; chmod go-rw,g+xs \"$A\"; git worktree add \"$A\" \"$@\" && git worktree list && (unset GIT_DIR; cd \"$A\"; printf \"$ cd \"; pwd; git status; \"$SHELL\"); git worktree remove -f \"$A\"; git worktree list; printf \"$ cd \"; pwd' ''"
+	with = "!\"$SHELL\" -c 'A=\"$(mktemp -d)\"; chgrp \"$(stat -c \"%g\" \"$(git rev-parse --git-dir)\")\" \"$A\"; chmod go-rw,g+xs \"$A\"; setfacl -m 'default:group::--x' -m 'default:other::---' \"$A\"; git worktree add \"$A\" \"$@\" && git worktree list && (unset GIT_DIR; cd \"$A\"; printf \"$ cd \"; pwd; git status; \"$SHELL\"); git worktree remove -f \"$A\"; git worktree list; printf \"$ cd \"; pwd' ''"
 [credential]
 	helper = cache
 [diff]
