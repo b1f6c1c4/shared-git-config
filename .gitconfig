@@ -70,6 +70,10 @@
 	rw = restore --worktree
 	rwp = restore --worktree -p
 	rsw = restore --source HEAD --staged --worktree
+	re = rebase
+	rb = rebase -i
+	rbq = rebase --abort
+	rbc = rebase --continue
 	sw = switch
 	de = switch --detach
 	its = "!bash -c 'git branch -f \"$1\" HEAD && git switch \"$1\"' ''"
