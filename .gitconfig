@@ -84,6 +84,7 @@
 	finds = "!(git ls-files; git submodule foreach --recursive \"git ls-files\") | awk -F '/' \"{ if (match(\\$0, /^Entering '(.*)'\\$/, ary)) { P=ary[1]; sep=\\\"/\\\" } else { printf \\\"%s%s%s\\\\n\\\",P,sep,\\$0; } }\" | grep --color=always"
 	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
 	ignore = !vim `git rev-parse --git-dir`/info/exclude
+	cfg = !vim `git rev-parse --git-dir`/config
 	suir = submodule update --init --recursive
 	sub = submodule
 	sync = submodule sync
