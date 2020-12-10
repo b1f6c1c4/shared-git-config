@@ -100,4 +100,6 @@
 	version = 2
 [rebase]
 	autosquash = true
+[rerere]
+	enabled = true
 # vim: set noexpandtab:
