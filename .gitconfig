@@ -16,6 +16,7 @@
 	# proxy = http://localhost:1081
 [alias]
 	branches = branch -av
+	bra = branch -av
 	remotes = remote -v
 	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit
 	la = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all
