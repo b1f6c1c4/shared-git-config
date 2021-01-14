@@ -99,4 +99,6 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[init]
+	defaultBranch = master
 # vim: set noexpandtab:
