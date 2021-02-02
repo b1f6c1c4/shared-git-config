@@ -18,6 +18,7 @@
 	lg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit
 	la = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all
 	ls = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --decorate --numstat
+	las = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all --simplify-by-decoration
 	lf = log -p
 	fe = fetch
 	ch = cherry -v
@@ -75,7 +76,7 @@
 	sw = switch
 	de = switch --detach
 	its = "!bash -c 'git branch -f \"$1\" HEAD && git switch \"$1\"' ''"
-	sh = "!bash -c '[ $# -eq 0 ] && git sh HEAD || (git diff-tree --color=always -p \"$1^1\" \"$1\" | less)' ''"
+	sh = "!bash -c '[ $# -eq 0 ] && git sh HEAD || git -p diff-tree --color=always -p \"$1^1\" \"$@\" ' ''"
 	ff = "!bash -c 'git merge-base --is-ancestor \"$1\" \"$2\" && git branch -f \"$1\" \"$2\" && echo \"$(git rev-parse \"$1@{1}\")\" \"->\" \"$(git rev-parse $2)\" || (echo FAIL && false)' ''"
 	greps = "!bash -c '(git --no-pager grep --color=always \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps --color=always \"$@\")\" )\") | less' ''"
 	find = "!git ls-files -- :/ | grep --color=always"
@@ -101,4 +102,6 @@
 	enabled = true
 [init]
 	defaultBranch = master
+[merge]
+	tool = vimdiff
 # vim: set noexpandtab:
