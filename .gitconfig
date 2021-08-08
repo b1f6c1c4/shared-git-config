@@ -19,6 +19,10 @@
 	la = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all
 	ls = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --decorate --numstat
 	las = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all --simplify-by-decoration
+	llg = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)(%cI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit
+	lla = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)(%cI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all
+	lls = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)(%cI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --decorate --numstat
+	llas = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(magenta)%d %Cgreen(%aI)(%cI)%Creset %s %C(bold blue)<%an>%G?<%cn>%Creset' --abbrev-commit --all --simplify-by-decoration
 	lf = log -p
 	fe = fetch
 	ch = cherry -v
@@ -69,6 +73,7 @@
 	rw = restore --worktree
 	rwp = restore --worktree -p
 	rsw = restore --source HEAD --staged --worktree
+	rswp = restore --source HEAD --staged --worktree -p
 	re = rebase --reapply-cherry-picks
 	rb = rebase --reapply-cherry-picks -i
 	rbq = rebase --abort
