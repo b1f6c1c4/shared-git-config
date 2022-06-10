@@ -75,7 +75,9 @@
 	rsw = restore --source HEAD --staged --worktree
 	rswp = restore --source HEAD --staged --worktree -p
 	re = rebase --reapply-cherry-picks
+	rf = rebase --reapply-cherry-picks --fork-point
 	rb = rebase --reapply-cherry-picks -i
+	rbf = rebase --reapply-cherry-picks --fork-point -i
 	rbq = rebase --abort
 	rbc = rebase --continue
 	sw = switch
