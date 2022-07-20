@@ -85,7 +85,7 @@
 	its = "!bash -c 'git branch -f \"$1\" HEAD && git switch \"$1\"' ''"
 	sh = "!bash -c '[ $# -eq 0 ] && git sh HEAD || git -p diff-tree --color=always -p \"$1^1\" \"$@\" ' ''"
 	ff = "!bash -c 'git merge-base --is-ancestor \"$1\" \"$2\" && git branch -f \"$1\" \"$2\" && echo \"$(git rev-parse \"$1@{1}\")\" \"->\" \"$(git rev-parse $2)\" || (echo FAIL && false)' ''"
-	greps = "!bash -c '(git --no-pager grep --color=always \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps --color=always \"$@\")\" )\") | less' ''"
+	greps = "!bash -c '(git --no-pager grep --color=always \"$@\" -- :/; git submodule foreach --recursive \"$(printf \"%s || true\" \"$(printf \"%q \" git --no-pager greps --color=always \"$@\")\" )\") | less -R' ''"
 	find = "!git ls-files -- :/ | grep --color=always"
 	finds = "!(git ls-files; git submodule foreach --recursive \"git ls-files\") | awk -F '/' \"{ if (match(\\$0, /^Entering '(.*)'\\$/, ary)) { P=ary[1]; sep=\\\"/\\\" } else { printf \\\"%s%s%s\\\\n\\\",P,sep,\\$0; } }\" | grep --color=always"
 	onto = "!bash -c 'git update-ref ONTO_TMP HEAD && git rebase -i $1 $2 --onto ONTO_TMP && git branch -f $1 ONTO_TMP && git switch $1' ''"
